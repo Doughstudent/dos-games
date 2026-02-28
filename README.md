@@ -109,7 +109,7 @@
   </div>
   <div class="nav-right">
     <span onclick="document.getElementById('games-section').scrollIntoView({behavior:'smooth'})">Curriculum</span>
-    <span onclick="stealthTab()" style="color:var(--accent2); border:1px solid #ff3e6c44; padding:6px 14px; border-radius:4px; font-family:'Orbitron',monospace; font-size:0.72rem; letter-spacing:1px; transition:all 0.2s; cursor:pointer;" onmouseover="this.style.background='#ff3e6c22'" onmouseout="this.style.background='transparent'">&#128272; STEALTH</span>
+    <span onclick="stealthTab()" style="color:var(--accent2); border:1px solid #ff3e6c44; padding:6px 14px; border-radius:4px; font-family:'Orbitron',monospace; font-size:0.72rem; letter-spacing:1px; transition:all 0.2s; cursor:pointer;" onmouseover="this.style.background='#ff3e6c22'" onmouseout="this.style.background='transparent'">&#128272; CLOAK</span>
 
     <div class="nav-resources">
       <span>Resources &#9662;</span>
