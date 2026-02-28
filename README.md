@@ -109,6 +109,7 @@
   </div>
   <div class="nav-right">
     <span onclick="document.getElementById('games-section').scrollIntoView({behavior:'smooth'})">Curriculum</span>
+    <span onclick="stealthTab()" style="color:var(--accent2); border:1px solid #ff3e6c44; padding:6px 14px; border-radius:4px; font-family:'Orbitron',monospace; font-size:0.72rem; letter-spacing:1px; transition:all 0.2s; cursor:pointer;" onmouseover="this.style.background='#ff3e6c22'" onmouseout="this.style.background='transparent'">&#128272; STEALTH</span>
 
     <div class="nav-resources">
       <span>Resources &#9662;</span>
@@ -299,6 +300,13 @@
 </div>
 
 <script>
+
+function stealthTab() {
+  const blank = window.open('about:blank', '_self');
+  blank.document.write('<html><head><title>Google</title></head><body style="margin:0;padding:0;"><iframe src="https://www.google.com" style="width:100%;height:100vh;border:none;"></iframe></body></html>');
+  blank.document.close();
+}
+
 function goTo(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
