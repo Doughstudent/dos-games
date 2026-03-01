@@ -109,7 +109,8 @@
   </div>
   <div class="nav-right">
     <span onclick="document.getElementById('games-section').scrollIntoView({behavior:'smooth'})">Curriculum</span>
-    <span onclick="stealthTab()" style="color:var(--accent2); border:1px solid #ff3e6c44; padding:6px 14px; border-radius:4px; font-family:'Orbitron',monospace; font-size:0.72rem; letter-spacing:1px; transition:all 0.2s; cursor:pointer;" onmouseover="this.style.background='#ff3e6c22'" onmouseout="this.style.background='transparent'">&#128272; CLOAK</span>
+    <span onclick="window.location.href='https://destiny.follettlearning.com'" style="color:var(--accent3); border:1px solid #ffe10044; padding:6px 14px; border-radius:4px; font-family:'Orbitron',monospace; font-size:0.72rem; letter-spacing:1px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='#ffe10022'" onmouseout="this.style.background='transparent'">&#128218; DESTINY</span>
+    <span onclick="stealthTab()" style="color:var(--accent2); border:1px solid #ff3e6c44; padding:6px 14px; border-radius:4px; font-family:'Orbitron',monospace; font-size:0.72rem; letter-spacing:1px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='#ff3e6c22'" onmouseout="this.style.background='transparent'">&#128272; CLOAK</span>
 
     <div class="nav-resources">
       <span>Resources &#9662;</span>
@@ -164,7 +165,7 @@
   <button class="filter-btn" onclick="setFilter('puzzle', this)">Puzzle</button>
   <button class="filter-btn" onclick="setFilter('racing', this)">Racing</button>
   <button class="filter-btn" onclick="setFilter('shooter', this)">Shooter</button>
-  <button class="filter-btn" onclick="setFilter('13+', this)">13+</button>
+
   <button class="filter-btn" onclick="setFilter('idle', this)">Idle</button>
   <button class="filter-btn" onclick="setFilter('gore', this)">🩸 Gore</button>
 </div>
@@ -244,11 +245,11 @@
   <div id="resources-video" class="scroll-target" style="font-family:'Orbitron',monospace; font-size:0.72rem; color:var(--muted); letter-spacing:3px; margin-bottom:12px;">&#127916; VIDEO &amp; ANIME</div>
   <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin-bottom:28px;">
     <a href="https://www.youtube.com" target="_blank" class="app-card" style="--c:#ff0000"><span class="app-icon">&#128250;</span><div><div class="app-name">YouTube</div><div class="app-desc">Watch videos free</div></div></a>
-    <a href="https://www.crunchyroll.com" target="_blank" class="app-card" style="--c:#f47521"><span class="app-icon">&#127845;</span><div><div class="app-name">Crunchyroll</div><div class="app-desc">Free anime streaming (ads)</div></div></a>
-    <a href="https://www4.gogoanimes.fi" target="_blank" class="app-card" style="--c:#00ffe0"><span class="app-icon">&#9961;</span><div><div class="app-name">GogoAnime</div><div class="app-desc">Free anime &#8212; huge library</div></div></a>
+    
+    
     <a href="https://9animetv.to" target="_blank" class="app-card" style="--c:#9b59b6"><span class="app-icon">&#127800;</span><div><div class="app-name">9AnimeTV</div><div class="app-desc">Watch anime free, no login</div></div></a>
     <a href="https://www.twitch.tv" target="_blank" class="app-card" style="--c:#9146FF"><span class="app-icon">&#128995;</span><div><div class="app-name">Twitch</div><div class="app-desc">Watch live game streams</div></div></a>
-    <a href="https://animesuge.to" target="_blank" class="app-card" style="--c:#e74c3c"><span class="app-icon">&#127884;</span><div><div class="app-name">AnimeSuge</div><div class="app-desc">Dubbed &amp; subbed anime free</div></div></a>
+    
   </div>
 
   <div id="resources-social" class="scroll-target" style="font-family:'Orbitron',monospace; font-size:0.72rem; color:var(--muted); letter-spacing:3px; margin-bottom:12px;">&#128241; SOCIAL MEDIA</div>
@@ -301,10 +302,23 @@
 
 <script>
 
+
+
+
 function stealthTab() {
-  const blank = window.open('about:blank', '_self');
-  blank.document.write('<html><head><title>Google</title></head><body style="margin:0;padding:0;"><iframe src="https://www.google.com" style="width:100%;height:100vh;border:none;"></iframe></body></html>');
-  blank.document.close();
+  const w = window.open('about:blank', '_blank');
+  const html = document.documentElement.outerHTML;
+  w.document.open();
+  w.document.write(html);
+  w.document.close();
+  // Change the new tab's title to look innocent
+  w.document.title = 'Google Classroom';
+  try {
+    const link = w.document.createElement('link');
+    link.rel = 'shortcut icon';
+    link.href = 'https://ssl.gstatic.com/classroom/favicon.png';
+    w.document.head.appendChild(link);
+  } catch(e) {}
 }
 
 function goTo(id) {
@@ -332,7 +346,7 @@ const games = [
   { name: "Drift Boss", desc: "Drift around corners endlessly", emoji: "&#127950;", url: "https://www.crazygames.com/game/drift-boss", cat: "racing", age: "all", hot: true },
   { name: "Moto X3M", desc: "Insane bike stunts", emoji: "&#127949;", url: "https://www.crazygames.com/game/moto-x3m", cat: "racing", age: "all", hot: true },
   { name: "Slope", desc: "Speed ball on slope", emoji: "&#9917;", url: "https://slope-game.github.io", cat: "racing", age: "all", hot: true },
-  { name: "Minecraft Classic", desc: "Build in the original MC", emoji: "&#9935;", url: "https://classic.minecraft.net", cat: "action", age: "all", hot: true },
+  { name: "Eaglercraft", desc: "Minecraft in the browser, no download", emoji: "&#9935;", url: "https://eaglercraft.com/mc/1.8.8/", cat: "action", age: "all", hot: true },
   { name: "Friday Night Funkin", desc: "Rhythm battle game", emoji: "&#127925;", url: "https://www.crazygames.com/game/friday-night-funkin", cat: "action", age: "13+", hot: true },
   { name: "Among Us Online", desc: "Find the impostor", emoji: "&#128308;", url: "https://www.crazygames.com/game/among-us-online-edition", cat: "action", age: "all", hot: true },
   { name: "Smash Karts", desc: "Go-kart battle arena", emoji: "&#128168;", url: "https://smashkarts.io", cat: "action", age: "all", hot: true },
@@ -573,13 +587,8 @@ function renderGames(list) {
   });
 }
 
-function filterGames() {
-  const query = document.getElementById('searchInput').value.toLowerCase();
-  let filtered = games;
-  if (currentFilter !== 'all') filtered = filtered.filter(g => g.cat === currentFilter || g.age === currentFilter);
-  if (query) filtered = filtered.filter(g => g.name.toLowerCase().includes(query) || g.desc.toLowerCase().includes(query));
-  renderGames(filtered);
-}
+
+
 
 function setFilter(cat, btn) {
   currentFilter = cat;
@@ -612,68 +621,123 @@ function closeGame() {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeGame(); });
 renderGames(games);
 
-// ===================== CYBER CURSOR =====================
+// ===================== BINARY ERROR CURSOR =====================
 (function() {
   const style = document.createElement('style');
   style.textContent = `
     * { cursor: none !important; }
-
-    #cyber-cursor {
+    #err-cursor {
       position: fixed;
       pointer-events: none;
       z-index: 999999;
-      width: 20px;
-      height: 20px;
-      transform: translate(0, 0);
+      top: 0; left: 0;
+      transform: translate(-2px, -2px);
       user-select: none;
     }
-
-    #cyber-cursor svg {
-      filter: drop-shadow(0 0 4px #00ffe0) drop-shadow(0 0 8px #00ffe066);
+    #err-arrow {
+      position: absolute;
+      top: 0; left: 0;
+      animation: errShake 0.07s steps(1) infinite;
     }
-
-    #cyber-dot {
+    @keyframes errShake {
+      0%   { transform: translate(0,0);    filter: drop-shadow(0 0 4px #ff0000); }
+      25%  { transform: translate(-2px,1px); filter: drop-shadow(2px 0 0 #00ffff) drop-shadow(-2px 0 0 #ff00ff); }
+      50%  { transform: translate(2px,-1px); filter: drop-shadow(0 0 6px #ff0000); }
+      75%  { transform: translate(-1px,2px); filter: drop-shadow(2px 0 0 #ff00ff) drop-shadow(-2px 0 0 #00ffff); }
+    }
+    .bin-particle {
       position: fixed;
       pointer-events: none;
       z-index: 999998;
-      width: 5px;
-      height: 5px;
-      background: #00ffe0;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 6px #00ffe0, 0 0 12px #00ffe066;
-      transition: transform 0.1s ease, opacity 0.1s ease;
-    }
-
-    #cyber-dot.clicking {
-      transform: translate(-50%, -50%) scale(2);
-      opacity: 0.5;
+      font-family: 'Orbitron', monospace;
+      font-size: 10px;
+      color: #ff0000;
+      opacity: 0;
+      user-select: none;
+      text-shadow: 0 0 4px #ff0000;
     }
   `;
   document.head.appendChild(style);
 
-  // Sharp arrow cursor - cyber style
-  const cursor = document.createElement('div');
-  cursor.id = 'cyber-cursor';
-  cursor.innerHTML = `<svg width="20" height="24" viewBox="0 0 20 24" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,0 0,20 5,15 8,23 11,22 8,14 14,14" fill="#00ffe0" stroke="#003830" stroke-width="1" stroke-linejoin="round"/>
+  const ARROW_SVG = `<svg width="28" height="35" viewBox="0 0 28 35" xmlns="http://www.w3.org/2000/svg">
+    <!-- red glitch copies -->
+    <polygon points="1,1 1,28 8,21 12,32 16,30 12,19 20,19" fill="#ff000066" transform="translate(3,0)"/>
+    <polygon points="1,1 1,28 8,21 12,32 16,30 12,19 20,19" fill="#00ffff44" transform="translate(-3,0)"/>
+    <!-- main black arrow white border -->
+    <polygon points="1,1 1,28 8,21 12,32 16,30 12,19 20,19" fill="#0a0a0a" stroke="#ff0000" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- ERROR text on arrow -->
+    <text x="3" y="16" font-family="monospace" font-size="4" fill="#ff0000" font-weight="bold">ERR</text>
   </svg>`;
-  document.body.appendChild(cursor);
 
-  // Small glowing dot at tip
-  const dot = document.createElement('div');
-  dot.id = 'cyber-dot';
-  document.body.appendChild(dot);
+  const wrap = document.createElement('div');
+  wrap.id = 'err-cursor';
+  wrap.innerHTML = `<div id="err-arrow">${ARROW_SVG}</div>`;
+  document.body.appendChild(wrap);
 
+  // Binary particles
+  const BITS = ['0','1','01','10','11','00','101','010','1010','0110'];
+  const pool = [];
+
+  class Bit {
+    constructor() {
+      this.el = document.createElement('div');
+      this.el.className = 'bin-particle';
+      document.body.appendChild(this.el);
+      this.active = false;
+    }
+    spawn(x, y) {
+      this.x = x; this.y = y;
+      this.vx = (Math.random() - 0.5) * 3;
+      this.vy = (Math.random() * -3) - 0.5;
+      this.life = 1;
+      this.decay = 0.03 + Math.random() * 0.04;
+      this.el.textContent = BITS[Math.floor(Math.random() * BITS.length)];
+      // randomly red or cyan
+      const col = Math.random() > 0.5 ? '#ff0000' : '#00ffff';
+      this.el.style.color = col;
+      this.el.style.textShadow = `0 0 4px ${col}`;
+      this.active = true;
+    }
+    update() {
+      if (!this.active) return;
+      this.life -= this.decay;
+      if (this.life <= 0) { this.active = false; this.el.style.opacity = 0; return; }
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vy += 0.05;
+      this.el.style.opacity = this.life;
+      this.el.style.left = this.x + 'px';
+      this.el.style.top  = this.y + 'px';
+    }
+  }
+
+  for (let i = 0; i < 24; i++) pool.push(new Bit());
+
+  let lastSpawn = 0;
   document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    dot.style.left = e.clientX + 'px';
-    dot.style.top = e.clientY + 'px';
+    wrap.style.left = e.clientX + 'px';
+    wrap.style.top  = e.clientY + 'px';
+    const now = Date.now();
+    if (now - lastSpawn > 50) {
+      lastSpawn = now;
+      const b = pool.find(b => !b.active);
+      if (b) b.spawn(e.clientX + (Math.random()*16-8), e.clientY + (Math.random()*16-8));
+    }
   });
 
-  document.addEventListener('mousedown', () => dot.classList.add('clicking'));
-  document.addEventListener('mouseup', () => dot.classList.remove('clicking'));
+  // click burst
+  document.addEventListener('click', e => {
+    for (let i = 0; i < 8; i++) {
+      const b = pool.find(b => !b.active);
+      if (b) b.spawn(e.clientX, e.clientY);
+    }
+  });
+
+  function animate() {
+    pool.forEach(b => b.update());
+    requestAnimationFrame(animate);
+  }
+  animate();
 })();
 </script>
 </body>
